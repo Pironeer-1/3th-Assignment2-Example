@@ -4,6 +4,8 @@
 
 ## ERD
 
+![pironeer-comment-erd](https://github.com/user-attachments/assets/d8fd601c-00db-4a61-8fd2-f5f418611025)
+
 자기자신을 참조하게 했을 때, 복잡도가 높아질 것 같지만 오히려 효율적이어집니다.
 1. 댓글 테이블과 대댓글 테이블이 분리되어 있다면, 게시물의 댓글을 조회할 때 두 개의 테이블을 조회해야 합니다.
 2. 게다가 두 테이블의 조회 결과를 시간 순서대로 정렬해야 합니다.
@@ -92,4 +94,5 @@
 <details>
 <summary>펼치기</summary>
 
+![pironeer-comment-swagger](https://github.com/user-attachments/assets/7fa27512-cb74-4cdf-82a9-c62616822511)
 </details>
