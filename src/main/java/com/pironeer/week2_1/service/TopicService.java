@@ -5,6 +5,7 @@ import com.pironeer.week2_1.dto.request.TopicUpdateRequest;
 import com.pironeer.week2_1.dto.response.TopicResponse;
 import com.pironeer.week2_1.dto.response.TopicSliceResponse;
 import com.pironeer.week2_1.mapper.TopicMapper;
+import com.pironeer.week2_1.repository.CommentRepository;
 import com.pironeer.week2_1.repository.TopicRepository;
 import com.pironeer.week2_1.repository.domain.Topic;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TopicService {
     private final TopicRepository topicRepository;
+    private final CommentRepository commentRepository;
 
     public void save(TopicCreateRequest request) {
         topicRepository.save(TopicMapper.from(request));
@@ -56,6 +58,7 @@ public class TopicService {
     }
 
     public void deleteById(Long id) {
+        commentRepository.deleteByTopicId(id);
         topicRepository.deleteById(id);
     }
 }

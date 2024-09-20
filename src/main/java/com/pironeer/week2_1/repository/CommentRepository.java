@@ -39,11 +39,6 @@ public class CommentRepository {
                 .toList();
     }
 
-    public void deleteById(Long id) {
-        Assert.notNull(id, "ID MUST NOT BE NULL");
-        commentMap.remove(id);
-    }
-
     public List<Comment> findByParentId(Long parentId) {
         Assert.notNull(parentId, "ID MUST NOT BE NULL");
         List<Comment> result = commentMap
@@ -53,5 +48,25 @@ public class CommentRepository {
                         && item.getParentComment().getId().equals(parentId))
                 .toList();
         return result.isEmpty() ? null : result;
+    }
+
+    public void deleteByParentId(Long parentId) {
+        Assert.notNull(parentId, "ID MUST NOT BE NULL");
+        commentMap
+                .values()
+                .removeIf(item -> item.getParentComment() != null
+                        && item.getParentComment().getId().equals(parentId));
+    }
+
+    public void deleteById(Long id) {
+        Assert.notNull(id, "ID MUST NOT BE NULL");
+        commentMap.remove(id);
+    }
+
+    public void deleteByTopicId(Long topicId) {
+        Assert.notNull(topicId, "TOPIC ID MUST NOT BE NULL");
+        commentMap
+                .values()
+                .removeIf(item -> item.getTopic().getId().equals(topicId));
     }
 }

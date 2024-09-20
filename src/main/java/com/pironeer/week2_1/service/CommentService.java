@@ -58,6 +58,7 @@ public class CommentService {
     }
 
     public void deleteById(Long id) {
+        commentRepository.deleteByParentId(id);
         commentRepository.deleteById(id);
     }
 
