@@ -95,4 +95,5 @@
 <summary>펼치기</summary>
 
 ![pironeer-comment-swagger](https://github.com/user-attachments/assets/7fa27512-cb74-4cdf-82a9-c62616822511)
+![pironeer-comment-swagger-2](https://github.com/user-attachments/assets/9045ef1d-b412-4f2b-9d16-67ea3e572044)
 </details>
